@@ -20,7 +20,7 @@
       </div>
       <div class="form-group">
         <label for="alt_email">Alternate Email</label>
-        <input type="email" name="alt_email" class="form-control" placeholder="enter alternate name" required/>
+        <input type="email" name="admin_alternate_email" class="form-control" placeholder="enter alternate name" required/>
       </div>
       <div class="form-group">
         <label for="admin_auth">Admin Authority</label>

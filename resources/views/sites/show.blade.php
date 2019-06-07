@@ -26,7 +26,7 @@
 
   <a href="{{ url('/sites/' . $sites->id . '/edit')}}" class="btn btn-primary"> Edit </a>
 
-  <form method="POST" action="{{ action('SitesController@destroy', $sites->id) }}">
+  <form method="POST" action="{{ action('SitesController@destroy', $sites->id) }}" class="delete_form">
   @method('DELETE')
   @csrf
     <div class="form-group">
@@ -35,5 +35,19 @@
       </div>
     </div>
   </form>
+
+  <script>
+      $(document).ready(function(){
+          $('.delete_form').on('submit', function(){
+              if (confirm("Are you sure you want to delete?"))
+              {
+                  return true;
+              }
+              else {
+                  return false;
+              }
+          });
+      });
+  </script>
 
 @endsection

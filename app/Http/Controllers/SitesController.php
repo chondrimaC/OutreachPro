@@ -37,10 +37,10 @@ class SitesController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-        'url' => 'required',
+        'url' => 'required|unique:sites',
         'admin' => 'required',
-        'admin_email' => 'required',
-        'alt_email' => 'required',
+        'admin_email' => 'required|unique:sites',
+        'admin_alternate_email' => 'required|unique:sites',
         'admin_auth' => 'required',
         'visitor_num' => 'required',
         'price' => 'required'
@@ -50,7 +50,7 @@ class SitesController extends Controller
       $sites->url = $request->input('url');
       $sites->admin = $request->input('admin');
       $sites->admin_email = $request->input('admin_email');
-      $sites->admin_alternate_email = $request->input('alt_email');
+      $sites->admin_alternate_email = $request->input('admin_alternate_email');
       $sites->admin_authority = $request->input('admin_auth');
       $sites->visitor_number = $request->input('visitor_num');
       $sites->price = $request->input('price');
@@ -97,7 +97,7 @@ class SitesController extends Controller
         'url' => 'required',
         'admin' => 'required',
         'admin_email' => 'required',
-        'alt_email' => 'required',
+        'admin_alternate_email' => 'required',
         'admin_auth' => 'required',
         'visitor_num' => 'required',
         'price' => 'required'
@@ -107,7 +107,7 @@ class SitesController extends Controller
       $sites->url = $request->input('url');
       $sites->admin = $request->input('admin');
       $sites->admin_email = $request->input('admin_email');
-      $sites->admin_alternate_email = $request->input('alt_email');
+      $sites->admin_alternate_email = $request->input('admin_alternate_email');
       $sites->admin_authority = $request->input('admin_auth');
       $sites->visitor_number = $request->input('visitor_num');
       $sites->price = $request->input('price');
