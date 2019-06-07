@@ -40,11 +40,16 @@ class SitesController extends Controller
         'url' => 'required|unique:sites',
         'admin' => 'required',
         'admin_email' => 'required|unique:sites',
-        'admin_alternate_email' => 'required|unique:sites',
+        'admin_alternate_email' => 'required|unique:sites|different:admin_email',
         'admin_auth' => 'required',
         'visitor_num' => 'required',
         'price' => 'required'
       ]);
+
+     //  $email1 = $request->input('admin_email');
+     //  $email2 = $request->input('admin_alternate_email');
+     //
+     // if (isset($email1,$email2) && $email1 != $email2) echo 'Your password confirmation is not equal to your password';
 
       $sites = new Site;
       $sites->url = $request->input('url');
